@@ -40,7 +40,7 @@ if [ ! -f "$SRC" ]; then
 fi
 
 echo "Compilando versión secuencial..."
-gcc "$SRC" -o "$BIN"
+gcc -Wall -Wextra "$SRC" -o "$BIN"
 echo "Compilación secuencial finalizada."
 
 # Encabezado

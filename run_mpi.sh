@@ -53,7 +53,7 @@ if [ ! -f "$SRC" ]; then
 fi
 
 echo "Compilando versión MPI..."
-mpicc "$SRC" -o "$BIN"
+mpicc -Wall -Wextra "$SRC" -o "$BIN"
 echo "Compilación MPI finalizada."
 
 echo ""
