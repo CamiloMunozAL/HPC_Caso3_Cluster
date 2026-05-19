@@ -609,7 +609,7 @@ Ejecutar:
 ## 16. Compilación de la versión secuencial
 
 ```bash
-gcc -O3 -Wall -Wextra matmul_seq.c -o matmul_seq
+gcc -Wall -Wextra matmul_seq.c -o matmul_seq
 ```
 
 Ejemplo:
@@ -623,7 +623,7 @@ Ejemplo:
 ## 17. Compilación de la versión MPI
 
 ```bash
-mpicc -O3 -Wall -Wextra matmul_mpi.c -o matmul_mpi
+mpicc -Wall -Wextra matmul_mpi.c -o matmul_mpi
 ```
 
 Luego sincronizar:
@@ -681,7 +681,7 @@ SIZES=(400 600 800 1000 1200 1600)
 
 mkdir -p "$OUT_DIR"
 
-gcc -O3 -Wall -Wextra "$SRC" -o "$BIN"
+gcc -Wall -Wextra "$SRC" -o "$BIN"
 echo "N version trial wall_s user_s kernel_s cpu_total_s checksum seed" > "$OUT"
 
 for round in $(seq 1 "$ROUNDS"); do
@@ -716,7 +716,7 @@ WORKERS=(wn1 wn2 wn3)
 
 mkdir -p "$OUT_DIR"
 
-mpicc -O3 -Wall -Wextra "$SRC" -o "$BIN"
+mpicc -Wall -Wextra "$SRC" -o "$BIN"
 
 for node in "${WORKERS[@]}"; do
   scp "$BIN" "hpcuser@$node:$BIN"
@@ -864,10 +864,10 @@ La medición del tiempo se realizó con `MPI_Wtime`, debido a que la ejecución 
 ## 28. Comandos principales finales
 
 ```bash
-gcc -O3 -Wall -Wextra matmul_seq.c -o matmul_seq
+gcc -Wall -Wextra matmul_seq.c -o matmul_seq
 ./matmul_seq 400 4 123456789
 
-mpicc -O3 -Wall -Wextra matmul_mpi.c -o matmul_mpi
+mpicc -Wall -Wextra matmul_mpi.c -o matmul_mpi
 ./sync_workers.sh
 
 mpirun -np 4 --host head:1,wn1:1,wn2:1,wn3:1 /home/hpcuser/HPC_Caso3_Cluster/matmul_mpi 400 4 123456789
