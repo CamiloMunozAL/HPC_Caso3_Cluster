@@ -152,6 +152,15 @@ static void fill_random_matrices(int N, int32_t *A, int32_t *B) {
   size_t n = (size_t)N;
   size_t total = n * n;
 
+  if (N == 2) {
+    A[0] = 1; A[1] = 2;
+    A[2] = 3; A[3] = 4;
+
+    B[0] = 5; B[1] = 6;
+    B[2] = 7; B[3] = 8;
+    return;
+  }
+
   for (size_t i = 0; i < total; i++) {
     A[i] = rand_i32();
     B[i] = rand_i32();
